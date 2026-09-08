@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Статический аналитический dashboard по историческим Top-15 операторов и игр Blask × iGaming News."
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0a0b0d" />
+    <title>Blask × iGaming News — Market Dashboard</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="./assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">К основному содержанию</a>
+
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">B×I</div>
+          <div>
+            <p class="eyebrow">Blask × iGaming News</p>
+            <h1>Market intelligence</h1>
+          </div>
+        </div>
+
+        <div class="topbar-meta" aria-label="Краткий статус данных">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="header-status">Загрузка данных…</span>
+        </div>
+      </header>
+
+      <nav class="screen-tabs" aria-label="Разделы dashboard" role="tablist">
+        <button
+          class="screen-tab is-active"
+          id="tab-overview"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="screen-overview"
+          data-screen="overview"
+        >
+          <span class="tab-index">01</span>
+          Overview
+        </button>
+        <button
+          class="screen-tab"
+          id="tab-brands"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="screen-brands"
+          data-screen="brands"
+        >
+          <span class="tab-index">02</span>
+          Brand dynamics
+        </button>
+        <button
+          class="screen-tab"
+          id="tab-market"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="screen-market"
+          data-screen="market"
+        >
+          <span class="tab-index">03</span>
+          Market dynamics
+        </button>
+      </nav>
+
+      <main id="main-content">
+        <div class="loading-panel" id="loading-panel" role="status" aria-live="polite">
+          <div class="loading-line"></div>
+          <div>
+            <strong>Загружаем исторические данные</strong>
+            <span>CSV-файлы читаются напрямую из папки /data.</span>
+          </div>
+        </div>
+
+        <div class="app-error" id="app-error" hidden role="alert"></div>
+
+        <section
+          class="screen is-active"
+          id="screen-overview"
+          role="tabpanel"
+          aria-labelledby="tab-overview"
+          data-screen-panel="overview"
+        >
+          <div class="screen-heading">
+            <div>
+              <p class="section-kicker">Report snapshot</p>
+              <h2>Overview</h2>
+            </div>
+            <p>Один рынок и одна фактическая дата отчёта — без смешивания периодов.</p>
+          </div>
+
+          <div class="filter-bar filter-bar--overview" aria-label="Фильтры Overview">
+            <label class="field">
+              <span>Country</span>
+              <select id="overview-country"></select>
+            </label>
+            <label class="field">
+              <span>Report date</span>
+              <select id="overview-date"></select>
+            </label>
+            <div class="filter-context" id="overview-context" aria-live="polite"></div>
+          </div>
+
+          <section class="data-status" aria-labelledby="data-status-title">
+            <div class="data-status__lead">
+              <span class="pulse" aria-hidden="true"></span>
+              <div>
+                <p class="section-kicker" id="data-status-title">Data status</p>
+                <strong id="status-current">—</strong>
+              </div>
+            </div>
+            <div class="data-status__item">
+              <span>Данные обновлены</span>
+              <strong id="status-updated">—</strong>
+            </div>
+            <div class="data-status__item">
+              <span>Последняя проверка</span>
+              <strong id="status-checked">—</strong>
+            </div>
+            <div class="data-status__item data-status__item--wide" id="status-reports">—</div>
+          </section>
+
+          <div class="overview-grid">
+            <article class="panel">
+              <header class="panel-header">
+                <div>
+                  <p class="section-kicker">Published ranking</p>
+                  <h3>TOP-15 BRANDS</h3>
+                </div>
+                <span class="record-count" id="operators-count">—</span>
+              </header>
+              <div class="table-scroll" id="operators-table"></div>
+            </article>
+
+            <article class="panel">
+              <header class="panel-header">
+                <div>
+                  <p class="section-kicker">Published ranking</p>
+                  <h3>TOP-15 GAMES</h3>
+                </div>
+                <span class="record-count" id="games-count">—</span>
+              </header>
+              <div class="table-scroll" id="games-table"></div>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="screen"
+          id="screen-brands"
+          role="tabpanel"
+          aria-labelledby="tab-brands"
+          data-screen-panel="brands"
+          hidden
+        >
+          <div class="screen-heading">
+            <div>
+              <p class="section-kicker">Observed performance</p>
+              <h2>Brand dynamics</h2>
+            </div>
+            <p>Линии соединяют только последовательные реальные наблюдения; каждая точка — опубликованный отчёт.</p>
+          </div>
+
+          <div class="filter-bar filter-bar--brands" aria-label="Фильтры Brand dynamics">
+            <label class="field">
+              <span>Country</span>
+              <select id="brands-country"></select>
+            </label>
+            <label class="field">
+              <span>Metric</span>
+              <select id="brands-metric">
+                <option value="aps">APS</option>
+                <option value="ceb_usd">CEB</option>
+                <option value="market_share_pct">Market Share</option>
+                <option value="rank">Rank</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Period from</span>
+              <select id="brands-from"></select>
+            </label>
+            <label class="field">
+              <span>Period to</span>
+              <select id="brands-to"></select>
+            </label>
+          </div>
+
+          <div class="brand-controls">
+            <details class="brand-picker" id="brand-picker">
+              <summary>
+                <span>Brands</span>
+                <strong id="brand-picker-count">0 выбрано</strong>
+              </summary>
+              <div class="brand-picker__body">
+                <label class="brand-search">
+                  <span class="sr-only">Найти бренд</span>
+                  <input id="brand-search" type="search" placeholder="Найти бренд…" autocomplete="off" />
+                </label>
+                <div class="brand-picker__actions">
+                  <button type="button" class="text-button" id="brand-defaults">Выбрать Top-5 latest</button>
+                  <button type="button" class="text-button" id="brand-clear">Очистить</button>
+                </div>
+                <div class="brand-options" id="brand-options"></div>
+              </div>
+            </details>
+            <div class="selected-brands" id="selected-brands" aria-live="polite"></div>
+          </div>
+
+          <article class="panel chart-panel">
+            <header class="panel-header panel-header--chart">
+              <div>
+                <p class="section-kicker" id="brand-chart-kicker">Selected brands</p>
+                <h3 id="brand-chart-title">—</h3>
+              </div>
+              <div class="chart-note" id="brand-chart-note">—</div>
+            </header>
+            <div class="chart-scroll" id="brand-chart"></div>
+            <div class="chart-legend" id="brand-legend"></div>
+          </article>
+        </section>
+
+        <section
+          class="screen"
+          id="screen-market"
+          role="tabpanel"
+          aria-labelledby="tab-market"
+          data-screen-panel="market"
+          hidden
+        >
+          <div class="screen-heading">
+            <div>
+              <p class="section-kicker">Comparative view</p>
+              <h2>Market dynamics</h2>
+            </div>
+            <p>Сравнение первого и последнего доступных срезов внутри выбранного периода.</p>
+          </div>
+
+          <div class="market-toolbar">
+            <div class="filter-bar filter-bar--market" aria-label="Фильтры Market dynamics">
+              <label class="field">
+                <span>Country</span>
+                <select id="market-country"></select>
+              </label>
+              <label class="field">
+                <span>Period from</span>
+                <select id="market-from"></select>
+              </label>
+              <label class="field">
+                <span>Period to</span>
+                <select id="market-to"></select>
+              </label>
+            </div>
+            <div class="mode-switch" role="group" aria-label="Тип аналитики">
+              <button class="is-active" type="button" data-market-mode="operators" aria-pressed="true">OPERATORS</button>
+              <button type="button" data-market-mode="games" aria-pressed="false">GAMES</button>
+            </div>
+          </div>
+
+          <div id="market-content" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Только опубликованные Top-15 · без интерполяции · факт наличия данных определяется через <code>availability.csv</code></p>
+        <p id="footer-coverage">—</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+﻿report_date,country,region,operators_available,games_available
+2026-03-06,Argentina,LATAM,true,true
+2026-05-08,Argentina,LATAM,true,true
+2026-04-17,Argentina,LATAM,true,true
+2026-07-24,Argentina,LATAM,true,true
+2026-06-26,Argentina,LATAM,true,true
+2026-02-27,Argentina,LATAM,true,true
+2026-03-27,Argentina,LATAM,true,true
+2026-08-28,Argentina,LATAM,true,true
+2026-05-29,Argentina,LATAM,true,true
+2026-03-07,Uganda,WEST AFRICA,true,false
+2026-03-07,Colombia,LATAM,true,false
+2026-03-07,Ghana,WEST AFRICA,true,true
+2026-03-07,India,INDIA,true,true
+2026-03-07,Mexico,LATAM,true,true
+2026-03-07,Chile,LATAM,true,true
+2026-03-07,Nigeria,WEST AFRICA,true,true
+2026-05-08,India,INDIA,true,true
+2026-05-08,Mexico,LATAM,true,true
+2026-05-08,Chile,LATAM,true,true
+2026-05-08,Nigeria,WEST AFRICA,true,true
+2026-05-08,Uganda,WEST AFRICA,true,false
+2026-05-08,Colombia,LATAM,true,false
+2026-05-08,Ghana,WEST AFRICA,true,true
+2026-04-17,India,INDIA,true,true
+2026-04-17,Mexico,LATAM,true,true
+2026-04-17,Chile,LATAM,true,true
+2026-04-17,Nigeria,WEST AFRICA,true,true
+2026-04-17,Uganda,WEST AFRICA,true,false
+2026-04-17,Colombia,LATAM,true,false
+2026-04-17,Ghana,WEST AFRICA,true,true
+2026-07-24,India,INDIA,true,true
+2026-07-24,Mexico,LATAM,true,true
+2026-07-24,Chile,LATAM,true,true
+2026-07-24,Nigeria,WEST AFRICA,true,true
+2026-07-24,Uganda,WEST AFRICA,true,false
+2026-07-24,Colombia,LATAM,true,false
+2026-07-24,Ghana,WEST AFRICA,true,true
+2026-06-26,India,INDIA,true,true
+2026-06-26,Mexico,LATAM,true,true
+2026-06-26,Chile,LATAM,true,true
+2026-06-26,Nigeria,WEST AFRICA,true,true
+2026-06-26,Uganda,WEST AFRICA,true,false
+2026-06-26,Colombia,LATAM,true,false
+2026-06-26,Ghana,WEST AFRICA,true,true
+2026-02-27,India,INDIA,true,true
+2026-02-27,Mexico,LATAM,true,true
+2026-02-27,Chile,LATAM,true,true
+2026-02-27,Nigeria,WEST AFRICA,true,true
+2026-03-27,India,INDIA,true,true
+2026-03-27,Mexico,LATAM,true,true
+2026-03-27,Chile,LATAM,true,true
+2026-03-27,Nigeria,WEST AFRICA,true,true
+2026-03-27,Ghana,WEST AFRICA,true,true
+2026-03-27,Uganda,WEST AFRICA,true,false
+2026-03-27,Colombia,LATAM,true,false
+2026-08-28,India,INDIA,true,true
+2026-08-28,Mexico,LATAM,true,true
+2026-08-28,Chile,LATAM,true,true
+2026-08-28,Nigeria,WEST AFRICA,true,true
+2026-08-28,Uganda,WEST AFRICA,true,false
+2026-08-28,Colombia,LATAM,true,true
+2026-08-28,Ghana,WEST AFRICA,true,true
+2026-05-29,India,INDIA,true,true
+2026-05-29,Mexico,LATAM,true,true
+2026-05-29,Chile,LATAM,true,true
+2026-05-29,Nigeria,WEST AFRICA,true,true
+2026-05-29,Uganda,WEST AFRICA,true,false
+2026-05-29,Colombia,LATAM,true,false
+2026-05-29,Ghana,WEST AFRICA,true,true
